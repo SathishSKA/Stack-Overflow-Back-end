@@ -13,7 +13,7 @@ dotenv.config(); // Configuration of .env file
 
 //Server Setup
 const app = express(); // express initialization
-const PORT = process.env.PORT; // assigning a port for server
+const PORT = process.env.PORT || 5000; // assigning a port for server
 
 // Database Setup
 const url = process.env.MONGO_URL; // Getting the mongo URL from the .env file
@@ -29,7 +29,7 @@ app.use(express.json()); // parses incoming JSON responses to Object
 
 //Routes
 app.get("/", (req, res) => {
-  res.send("Stackover flow Backend is running");
+  res.send("Stackover Flow Backend is Running...");
 });
 
 app.use("/users", UserRoute);
